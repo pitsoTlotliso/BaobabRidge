@@ -1,4 +1,4 @@
-namespace BoababRidge
+﻿namespace BoababRidge
 {
     partial class frmMain
     {
@@ -29,9 +29,6 @@ namespace BoababRidge
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             pnlHeader = new Panel();
             picWildlife = new PictureBox();
             lblCentreSubtitle = new Label();
@@ -43,7 +40,6 @@ namespace BoababRidge
             btnViewAnimals = new Button();
             btnAddAnimal = new Button();
             pnlContent = new Panel();
-            dgv_ViewAnimals = new DataGridView();
             btnClear = new Button();
             btnAddAnimalSave = new Button();
             txtRecoveryScore = new TextBox();
@@ -61,7 +57,6 @@ namespace BoababRidge
             ((System.ComponentModel.ISupportInitialize)picWildlife).BeginInit();
             pnlNavigation.SuspendLayout();
             pnlContent.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgv_ViewAnimals).BeginInit();
             SuspendLayout();
             // 
             // pnlHeader
@@ -139,6 +134,7 @@ namespace BoababRidge
             btnSummary.TabIndex = 4;
             btnSummary.Text = "Summary";
             btnSummary.UseVisualStyleBackColor = true;
+            btnSummary.Click += btnSummary_Click;
             // 
             // btnDeleteAnimal
             // 
@@ -152,6 +148,7 @@ namespace BoababRidge
             btnDeleteAnimal.TabIndex = 3;
             btnDeleteAnimal.Text = "Delete Animal";
             btnDeleteAnimal.UseVisualStyleBackColor = true;
+            btnDeleteAnimal.Click += btnDeleteAnimal_Click;
             // 
             // btnUpdateAnimal
             // 
@@ -200,7 +197,6 @@ namespace BoababRidge
             // 
             pnlContent.BackColor = Color.FromArgb(225, 236, 197);
             pnlContent.BorderStyle = BorderStyle.FixedSingle;
-            pnlContent.Controls.Add(dgv_ViewAnimals);
             pnlContent.Controls.Add(btnClear);
             pnlContent.Controls.Add(btnAddAnimalSave);
             pnlContent.Controls.Add(txtRecoveryScore);
@@ -219,52 +215,7 @@ namespace BoababRidge
             pnlContent.Name = "pnlContent";
             pnlContent.Size = new Size(1082, 700);
             pnlContent.TabIndex = 2;
-            // 
-            // dgv_ViewAnimals
-            // 
-            dgv_ViewAnimals.AllowUserToAddRows = false;
-            dgv_ViewAnimals.AllowUserToDeleteRows = false;
-            dgv_ViewAnimals.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dgv_ViewAnimals.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dgv_ViewAnimals.BackgroundColor = Color.FromArgb(6, 49, 29);
-            dgv_ViewAnimals.BorderStyle = BorderStyle.Fixed3D;
-            dgv_ViewAnimals.CellBorderStyle = DataGridViewCellBorderStyle.Sunken;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.DarkOliveGreen;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.ControlLightLight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.ControlLightLight;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgv_ViewAnimals.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dgv_ViewAnimals.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(6, 49, 29);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlLightLight;
-            dataGridViewCellStyle2.SelectionBackColor = Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgv_ViewAnimals.DefaultCellStyle = dataGridViewCellStyle2;
-            dgv_ViewAnimals.GridColor = Color.DarkGreen;
-            dgv_ViewAnimals.Location = new Point(31, 25);
-            dgv_ViewAnimals.MultiSelect = false;
-            dgv_ViewAnimals.Name = "dgv_ViewAnimals";
-            dgv_ViewAnimals.ReadOnly = true;
-            dgv_ViewAnimals.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.DarkOliveGreen;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.ControlLightLight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgv_ViewAnimals.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dgv_ViewAnimals.RowHeadersWidth = 62;
-            dgv_ViewAnimals.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_ViewAnimals.Size = new Size(1023, 632);
-            dgv_ViewAnimals.TabIndex = 5;
-            dgv_ViewAnimals.Visible = false;
+     
             // 
             // btnClear
             // 
@@ -406,7 +357,7 @@ namespace BoababRidge
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1352, 816);
+            ClientSize = new Size(1370, 832);
             Controls.Add(pnlContent);
             Controls.Add(pnlNavigation);
             Controls.Add(pnlHeader);
@@ -421,7 +372,6 @@ namespace BoababRidge
             pnlNavigation.ResumeLayout(false);
             pnlContent.ResumeLayout(false);
             pnlContent.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgv_ViewAnimals).EndInit();
             ResumeLayout(false);
         }
 
@@ -451,6 +401,5 @@ namespace BoababRidge
         private TextBox txtAnimalID;
         private Button btnClear;
         private Button btnAddAnimalSave;
-        private DataGridView dgv_ViewAnimals;
     }
 }

@@ -33,7 +33,7 @@ namespace BoababRidge
 
         private void btnAddAnimal_Click(object sender, EventArgs e)
         {
-            ShowAddAnimalScreen();
+
         }
 
         private void btnAddAnimalSave_Click(object sender, EventArgs e)
@@ -79,14 +79,14 @@ namespace BoababRidge
             // Prevent characters from breaking the file format.
             if (name.Length > 30 || name.Contains('|'))
             {
-                MessageBox.Show("Animal Name must be 1â€“30 characters and cannot contain |.");
+                MessageBox.Show("Animal Name must be 1–30 characters and cannot contain |.");
                 txtAnimalName.Focus();
                 return;
             }
 
             if (species.Length > 30 || species.Contains('|'))
             {
-                MessageBox.Show("Species must be 1â€“30 characters and cannot contain |.");
+                MessageBox.Show("Species must be 1–30 characters and cannot contain |.");
                 txtSpecies.Focus();
                 return;
             }
@@ -204,36 +204,27 @@ namespace BoababRidge
             MessageBox.Show("Animal loaded. Edit the details and click Save Changes.");
         }
 
-        //=================Person 2 view animals===============
+        private void btnDeleteAnimal_Click(object sender, EventArgs e)
+        {
+            Delete deleteform = new Delete();
+            deleteform.ShowDialog();
+            this.Hide();
+        }
+
+        private void btnSummary_Click(object sender, EventArgs e)
+        {
+            frmSummary summaryForm = new frmSummary();
+
+            summaryForm.Show();
+
+            this.Hide();
+        }
+
         private void btnViewAnimals_Click(object sender, EventArgs e)
         {
-            dgv_ViewAnimals.DataSource = fileService.LoadAnimals();
 
-            dgv_ViewAnimals.Visible = true;
-            dgv_ViewAnimals.BringToFront();
-
-            lblFormTitle.Visible = false;
+            frmViewAnimals viewForm = new frmViewAnimals();
+            viewForm.Show();
         }
-
-
-
-        private void ShowAddAnimalScreen()
-        {
-            dgv_ViewAnimals.Visible = false;
-            dgv_ViewAnimals.SendToBack();
-
-            lblFormTitle.Visible = true;
-            txtAnimalID.Visible = true;
-            txtAnimalName.Visible = true;
-            txtSpecies.Visible = true;
-            txtAge.Visible = true;
-            txtRecoveryScore.Visible = true;
-            btnAddAnimalSave.Visible = true;
-            btnClear.Visible = true;
-        }
-
-        
     }
 }
-
-
