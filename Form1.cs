@@ -164,6 +164,13 @@ namespace BoababRidge
             txtAge.Clear();
             txtRecoveryScore.Clear();
 
+            // Reset the form back to Add Animal mode.
+            isUpdateMode = false;
+            originalAnimalID = "";
+            txtAnimalID.Enabled = true;
+            btnAddAnimalSave.Text = "Add Animal";
+            lblFormTitle.Text = "Add New Animal";
+
             txtAnimalID.Focus();
         }
 
