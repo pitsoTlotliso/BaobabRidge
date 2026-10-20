@@ -140,6 +140,7 @@
             btnDeleteAnimal.TabIndex = 3;
             btnDeleteAnimal.Text = "Delete Animal";
             btnDeleteAnimal.UseVisualStyleBackColor = true;
+            btnDeleteAnimal.Click += btnDeleteAnimal_Click;
             // 
             // btnUpdateAnimal
             // 
@@ -329,7 +330,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1082, 653);
+            ClientSize = new Size(1096, 666);
             Controls.Add(pnlContent);
             Controls.Add(pnlNavigation);
             Controls.Add(pnlHeader);

@@ -121,5 +121,35 @@ namespace BoababRidge
 
             File.WriteAllLines(filePath, lines, Encoding.UTF8);
         }
+        public void Delete(string animalID)
+        {
+            List<Animal> animals = LoadAnimals();
+            Animal animalDelete= null;
+            foreach (Animal animal in animals)
+            {
+                if (animal.AnimalID.Equals(animalID, StringComparison.OrdinalIgnoreCase))
+                {
+                    animalDelete = animal;
+                }
+            }
+            if (animalDelete != null)
+            {
+                animals.Remove(animalDelete);
+                List<string> lines = new List<string>();
+                foreach(Animal animal in animals)
+                {
+                    lines.Add($"{animal.AnimalID} - {animal.Name} - {animal.Species} - {animal.Age}" +
+                        $"{animal.RecoveryScore}- {animal.Status} - {animal.HousingUnit}");
+                }
+                File.WriteAllLines (filePath, lines, Encoding.UTF8);
+
+                MessageBox.Show("Animal deleted successfully");
+            }
+            else
+            {
+                MessageBox.Show("Animal not found");
+            }
+        }
+            
     }
 }

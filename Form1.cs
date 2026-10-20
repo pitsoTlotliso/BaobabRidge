@@ -203,5 +203,12 @@ namespace BoababRidge
 
             MessageBox.Show("Animal loaded. Edit the details and click Save Changes.");
         }
+
+        private void btnDeleteAnimal_Click(object sender, EventArgs e)
+        {
+            Delete deleteform = new Delete();
+            deleteform.ShowDialog();
+            this.Hide();
+        }
     }
 }
